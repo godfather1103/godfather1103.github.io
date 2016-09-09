@@ -43,7 +43,9 @@ window.onload = function () {
 
 function getCurShowTimeSeconds() {
     var curTime = new Date();
-    var ret = endTime.getTime() - curTime.getTime();
+    //var ret = endTime.getTime() - curTime.getTime();
+    //毕业时间已过现在变为正向计时
+    var ret = -(endTime.getTime() - curTime.getTime());
     ret = Math.round(ret / 1000);
 
     return ret >= 0 ? ret : 0;
