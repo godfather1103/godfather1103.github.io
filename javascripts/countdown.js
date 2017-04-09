@@ -156,14 +156,15 @@ function addBalls(x, y, num) {
 function render(cxt) {
 
     cxt.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-
+    var year = 0;
     var day = parseInt(curShowTimeSeconds / (3600 * 24));
     var hours = parseInt((curShowTimeSeconds / 3600) % 24);
     var minutes = parseInt((curShowTimeSeconds / 60) % 60);
     var seconds = curShowTimeSeconds % 60;
 
     //天
-    renderDigit(MARGIN_LEFT, MARGIN_TOP, parseInt(day / 10), cxt);
+    renderDigit(MARGIN_LEFT - 15 * (R + 1), MARGIN_TOP, parseInt(day / 100), cxt);
+    renderDigit(MARGIN_LEFT, MARGIN_TOP, parseInt((day / 10)%10), cxt);
     renderDigit(MARGIN_LEFT + 15 * (R + 1), MARGIN_TOP, parseInt(day % 10), cxt);
     renderDigit(MARGIN_LEFT + 30 * (R + 1), MARGIN_TOP, 11, cxt);
 
